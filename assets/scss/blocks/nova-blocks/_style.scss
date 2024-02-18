@@ -1,0 +1,22 @@
+@at-root {
+
+    html:root {
+        --novablocks-color-1: var(--current-color-primary);
+        --novablocks-color-2: var(--current-color-secondary);
+        --novablocks-color-3: var(--current-color-tertiary);
+
+        --novablocks-dark-1: var(--current-dark-primary);
+        --novablocks-dark-2: var(--current-dark-secondary);
+        --novablocks-dark-3: var(--current-dark-tertiary);
+
+        --novablocks-light-1: var(--current-light-primary);
+        --novablocks-light-2: var(--current-light-secondary);
+        --novablocks-light-3: var(--current-light-tertiary);
+
+        --nova-food-menu-item-highlight-color: var(--current-dark-primary);
+
+        --novablocks-spacing: var(--theme-spacing-fluid-medium);
+        --novablocks-media-spacing: var(--novablocks-spacing);
+        --novablocks-sides-spacings: var(--theme-wrapper-sides-spacing);
+    }
+}

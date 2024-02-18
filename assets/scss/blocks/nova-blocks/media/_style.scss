@@ -1,0 +1,71 @@
+@import 'block-colors';
+
+// hack to contain negative margin-top of .novablocks-media__layout
+.novablocks-media > .wp-block-group__inner-container {
+    padding-top: 1px;
+}
+
+.novablocks-media__content {
+    max-width: 100%;
+    @include apply-font(body);
+}
+
+.novablocks-media__aside {
+
+    .novablocks-media:not(.novablocks-media--no-thumbnail) & {
+        min-height: 15em;
+    }
+}
+
+.novablocks-media__image {
+
+    position: relative;
+
+    a {
+        @include cover;
+    }
+
+    img,
+    svg {
+        @include image-cover;
+    }
+}
+
+.novablocks-block__content {
+
+    @include above(tablet) {
+        --novablocks-block-content-padding: var(--novablocks-spacing);
+    }
+}
+
+.novablocks-media--blog[class] {
+    --novablocks-block-content-box-shadow: none;
+    --novablocks-block-background-color: var(--current-light-tertiary);
+    --card-content-padding: 100;
+
+    .novablocks-media__image {
+        height: 100%;
+        min-height: 400px;
+    }
+
+    .novablocks-media__aside {
+        order: 0;
+    }
+
+    &.has-image-on-the-left .novablocks-media__layout {
+        flex-direction: row-reverse;
+    }
+}
+
+.novablocks-media {
+    
+    .novablocks-block[class] {
+        background: linear-gradient(
+            var(--novablocks-media-background-direction),
+            var(--novablocks-block-background-color) 0,
+            var(--novablocks-block-background-color) calc(var(--emphasis-area) * 1%),
+            transparent calc(var(--emphasis-area) * 1%)
+        );
+        background-size: 100% 100%;
+    }
+}

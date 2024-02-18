@@ -1,0 +1,106 @@
+$enable-button-block-styles:            true !default;
+
+@if $enable-button-block-styles == true {
+
+    /* Button Block */
+    .wp-block-button {
+
+        &.is-style-squared {
+            --theme-button-border-radius: 0;
+        }
+
+        &.is-style-outline {
+            --theme-button-background-color: transparent;
+            --theme-button-text-color: currentColor;
+            --theme-button-border-color: currentColor;
+
+            --theme-button-hover-background-color: transparent;
+            --theme-button-hover-text-color: currentColor;
+            --theme-button-hover-border-color: currentColor;
+        }
+
+        @each $alignment in left, center, right {
+            &.align#{$alignment} {
+                text-align: #{$alignment};
+            }
+        }
+    }
+
+    .wp-block-button__link {
+        @include button-base;
+        @include button-box;
+        @include apply-font(button);
+        @include button-color;
+    }
+
+    .wp-block-buttons[class][class][class] {
+        margin-top: var(--element-spacing);
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &:first-child {
+            --block-top-spacing: 1;
+            @include element-spacing;
+        }
+
+
+        .wp-block,
+        .wp-block-button {
+            margin-top: 0 !important;
+
+            &:not(:last-child),
+            &:not(:first-child):not(:last-child) {
+                margin-right: var(--element-spacing);
+            }
+        }
+
+        .block-editor-block-list__layout {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            > * {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        &.aligncenter {
+            justify-content: center;
+
+            .wp-block,
+            .wp-block-button {
+                margin-left: calc( var(--element-spacing) / 2 );
+                margin-right: calc( var(--element-spacing) / 2 );
+            }
+        }
+
+        &.alignright {
+            justify-content: flex-end;
+
+            .wp-block,
+            .wp-block-button {
+                margin-left: var(--element-spacing);
+                margin-right: 0;
+            }
+        }
+    
+        &.is-content-justification-left {
+            justify-content: flex-start;
+        }
+    
+        &.is-content-justification-center {
+            justify-content: center;
+        }
+    
+        &.is-content-justification-right {
+            justify-content: flex-end;
+        }
+
+        .wp-block-button__link[class] {
+            display: block;
+        }
+    }
+}
